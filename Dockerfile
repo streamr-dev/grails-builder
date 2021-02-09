@@ -7,7 +7,7 @@ RUN apt-get update && apt-get -y install \
 	curl
 WORKDIR /build
 RUN curl --silent --remote-name --location https://github.com/grails/grails-core/releases/download/v$GRAILS_VERSION/grails-$GRAILS_VERSION.zip && \
-	unzip -q grails-$GRAILS_VERSION.zip
+	unzip grails-$GRAILS_VERSION.zip
 
 FROM openjdk:8-jdk-buster
 RUN apt-get update && apt-get -y install git
