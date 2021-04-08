@@ -18,10 +18,7 @@ jobs:
           images: streamr/grails-builder
           tags: |
             type=sha
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern=v{{version}}
           flavor: |
             latest=auto
       - name: Set up Docker Buildx
