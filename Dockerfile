@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-buster AS grails-builder
+FROM openjdk:8-jdk-slim-buster AS grails-builder
 
 ARG GRAILS_VERSION
 ENV GRAILS_VERSION=${GRAILS_VERSION:-2.5.6}
@@ -9,7 +9,7 @@ WORKDIR /build
 RUN curl --silent --remote-name --location https://github.com/grails/grails-core/releases/download/v$GRAILS_VERSION/grails-$GRAILS_VERSION.zip && \
 	unzip grails-$GRAILS_VERSION.zip
 
-FROM openjdk:8-jdk-buster
+FROM openjdk:8-jdk-slim-buster
 RUN apt-get update && apt-get -y install git
 ARG GRAILS_VERSION
 ENV GRAILS_VERSION=${GRAILS_VERSION:-2.5.6}
